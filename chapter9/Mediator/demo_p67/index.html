@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用中介模式实现一个简单的聊天记录系统</title>
+</head>
+<body>
+<h1>Chat</h1>
+<form id="chatForm">
+    <label for="fromBox">Your Name:</label>
+    <input id="fromBox" type="text">
+    <br>
+    <label for="toBox">Send to:</label>
+    <input id="toBox" type="text">
+    <br>
+    <label for="chatBox">Message: </label>
+    <input id="chatBox" type="text">
+    <button action="submit">Chat</button>
+</form>
+
+<div id="chatResult"></div>
+</body>
+<script type="text/javascript" src="../../../lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="mediator.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>

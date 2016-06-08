@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解耦基于Ajax的jQuery应用程序</title>
+</head>
+
+<script id="resultTemplate" type="text/html">
+    <% _.each(items, function(item){ %>
+        <li><p><img src="<%= item.media.m %>" alt=""/></p></li>
+    <% }); %>
+</script>
+
+<body>
+
+<form id="flickrSearch" >
+
+    <input type="text" name="tag" id="query" />
+
+    <input type="submit" name="submit" value="submit" />
+</form>
+
+<div id="lastQuery"></div>
+<div id="searchResults"></div>
+
+</body>
+<script type="text/javascript" src="../../../lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../lib/underscore-1.8.2.js"></script>
+<script type="text/javascript" src="../../../lib/jquery.pubsub.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用Ben Alman的Pub/Sub实现解耦应用程序</title>
+</head>
+<script id="userTemplate" type="text/html">
+    <li><%= name %></li>
+</script>
+
+<script id="ratingsTemplate" type="text/html">
+    <li><strong><%= title %></strong> was rated <%= rating %>/5</li>
+</script>
+
+<body>
+
+<div id="container">
+    <div class="sampleForm">
+        <p>
+            <label for="twitter_handle">Twitter handle: </label>
+            <input type="text" id="twitter_handle">
+        </p>
+        <p>
+            <label for="movie_seen">Name a movie you've seen this year: </label>
+            <input type="text" id="movie_seen">
+        </p>
+        <p>
+            <label for="movie_rating">Rate the movie you saw:</label>
+            <select id="movie_rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected>5</option>
+            </select>
+        </p>
+        <p>
+            <button id="add">Submit rating </button>
+        </p>
+        <div class="summaryTable">
+            <div id="users"><h3>Recent users</h3></div>
+            <div id="ratings"><h3>Recent movies rated</h3></div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="../../../lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../lib/underscore-1.8.2.js"></script>
+<script type="text/javascript" src="../../../lib/jquery.pubsub.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>
