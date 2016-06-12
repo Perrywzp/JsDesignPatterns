@@ -169,6 +169,8 @@
 
                 }
             }
+
+            return topic;
         },
 
         Subscribe: function (topicName, fn, otpions, context) {

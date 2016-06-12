@@ -5,25 +5,27 @@
  */
 
 
+var mediator = new Mediator();
+
 $("#chatForm").on("submit", function(e) {
     e.preventDefault();
 
     // 从UI上获取chat数据
     var text = $("#chatBox").val(),
-        from = $("#fromBxo").val(),
+        from = $("#fromBox").val(),
         to = $("#toBox").val();
 
     // 将数据发布到newMessage主题上
-    Mediator.Publish("newMessage", {message: text,from: from, to: to});
+    mediator.Publish("newMessage", {"message": text,"from": from, "to": to});
 });
 
 // 将新消息附加到聊天结果记录上
 function displayChat(data) {
     var date = new Date(),
-        msg = data.from + "said \"" + data.message + "\"to" + data.to;
+        msg = data.from + " said \"" + data.message + "\" to " + data.to;
 
     $("#chatResult")
-        .prepend("" + msg + " (" + date.toLocaleTimeString() + ")");
+        .prepend(" " + msg + " (" + date.toLocaleTimeString() + ") <br/>");
 }
 
 // 记录消息日志
@@ -34,8 +36,8 @@ function logChat(data){
 }
 
 // 通过mediator 订阅新提交的newMessage主题
-Mediator.Subscribe("newMessage", displayChat);
-Mediator.Subscribe('newMessage', logChat);
+mediator.Subscribe("newMessage", displayChat);
+mediator.Subscribe('newMessage', logChat);
 
 // 如下代码仅在高级代码实现上可以使用
 function amItalkToMyself(data) {
@@ -47,4 +49,4 @@ function iAmClearlyCrazy(data) {
         .prepend("" + data.from + " is talking to himself.");
 }
 
-Mediator.Subscribe(amItalkToMyself,iAmClearlyCrazy);
+mediator.Subscribe(amItalkToMyself,iAmClearlyCrazy);
