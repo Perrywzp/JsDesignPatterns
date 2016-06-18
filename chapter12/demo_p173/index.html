@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过jquery的addClass来理解其所运用的composit（组合）模式</title>
+</head>
+<style>
+    div{background:#000;}
+</style>
+<body>
+
+    <div class="test1">test1</div>
+
+</body>
+<script type="text/javascript" src="../../lib/jquery-1.12.4.js"></script>
+
+<script>
+    $(function(){
+        var $div = $("div");
+//        console.log($div.css("opacity"));
+        $div.css({opacity:.5});
+//        console.log($div.css("opacity"));
+    });
+</script>
+</html>
